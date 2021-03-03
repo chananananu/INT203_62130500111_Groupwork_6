@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8" />     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+        <title>Groupwork2</title>    
+        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+        <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" />
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    </head>
+  <body>
+    <div id="app">
+        <div class="container d-flex justify-content-center">
+            <div class="card mt-5 px-4 pt-4 pb-2">
+                <div class="media p-2"> <img v-bind:src="image" class="mr-1 align-self-start rounded-circle" width="50">
+                    <div class="media-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h6 class="mt-2 mb-0">{{firstname}} {{lastname}}</h6><i class="fas fa-angle-down mr-3 text-muted"></i>
+                        </div>
+                        <p class="text-muted">{{id}}</p>
+                    </div>
+                </div>
+                <ul class="list text-muted mt-3 pl-0">
+                    <li><i class="far fa-building mr-3 ml-2"></i>{{university}}</li>
+                    <li><i class="fas fa-wallet mr-3 ml-2"></i>{{faculty}}</li>
+                    <li><i class="far fa-credit-card mr-3 ml-2"></i>{{major}}</li>
+                    <li><i class="fas fa-chart-pie mr-3 ml-2"></i>{{city}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="./profile.js"></script>      
+  </body>
+</html>
