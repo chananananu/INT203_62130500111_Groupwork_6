@@ -1,16 +1,6 @@
 body {
-    background-color: #EEEFF3;
+    background-color: #f3f3f3;
     font-family: 'Kanit', sans-serif
-}
-
-.card {
-    width: 375px;
-    border: none;
-    border-radius: 10px
-}
-
-.media {
-    border: 1px solid #EBEDEC
 }
 
 .rounded-circle {

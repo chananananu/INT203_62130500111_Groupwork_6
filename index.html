@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile</title>
+    <!-- <link rel="stylesheet" href="style.css">  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- Material Icon CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <form @submit.prevent="checkForm">
+            <div class="container w-2/5 p-8 mx-auto mt-10 border rounded-lg shadow-md bg-white">
+                <h1 class="text-2xl pt-4 pb-4">Profile</h1>
+
+
+                <div v-if="errors">
+                    <div class="bg-red-200 border border-red-500 text-red-500 pl-4 pr-8 py-3 rounded relative">
+                        <span class="material-icons text-red-500 float-left mt-0.5 mr-1">error</span>
+                        <p class="font-bol ">Some fields are incorrect.</p>
+                    </div>
+                    <p v-for="error in errors" class="text-red-500">{{ error }}</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col">
+                        <label for="firstname" class="text-sm leading-7 text-gray-600">First Name</label>
+                        <input type="text" id="firstname" v-model="firstname" name="firstname" placeholder="First Name"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4" autofocus>
+
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="lastname" class="text-sm leading-7 text-gray-600">Last Name</label>
+                        <input type="text" id="lastname" v-model="lastname" name="lastname" placeholder="Last Name"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4" autofocus>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="id" class="text-sm leading-7 text-gray-600">Student ID</label>
+                        <input type="text" id="id" v-model="id" name="id" placeholder="Student ID"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-sm leading-7 text-gray-600">Gender</label>
+                        <div class="flex flex-row pt-2 space-x-2">
+                            <input type="radio" id="Male" v-model="gender" name="gender" value="M"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4 mt-2">
+                            <label for="Male">Male</label>
+                            <input type="radio" id="Female" v-model="gender" name="gender" value="F"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4 mt-2" autofocus>
+                            <label for="Female">Female</label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="email" class="text-sm leading-7 text-gray-600">Email</label>
+                        <input type="text" id="email" v-model="email" name="email" placeholder="Email"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4" autofocus>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="phone" class="text-sm leading-7 text-gray-600">Phone Number</label>
+                        <input type="text" id="phone" v-model="phone" name="phone" placeholder="Phone Number"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4" autofocus>
+                    </div>
+                    <div class="flex flex-col col-span-2">
+                        <input type="submit" value="Submit"
+                            class="px-8 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                    </div>
+                </div>
+            </div>
+        </form> -->
+
+        <!-- Container -->
+        <div class="container mx-auto">
+            <div class="flex justify-center px-6 my-12">
+                <!-- Row -->
+                <div class="w-full xl:w-3/4 lg:w-11/12 flex shadow-md">
+                    <!-- Col -->
+                    <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg bg-green-200">
+                        <div class="pt-44">
+                            <div class="flex justify-center">
+                                <img v-bind:src="image" class="rounded-full" width="130">
+                            </div>
+                            <p class="pt-4 text-xl text-center font-bold text-purple-900">Update your profile</p>
+                        </div>
+                    </div>
+                    <!-- Col -->
+                    <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                        <h3 class="pt-4 text-2xl text-center font-bold">Profile</h3>
+                        <form @submit.prevent="checkForm" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+
+                            <div v-if="errors">
+                                <div
+                                    class="bg-red-200 border border-red-500 text-red-500 pl-4 pr-8 py-3 rounded relative">
+                                    <span class="material-icons text-red-500 float-left mt-0.5 mr-1">error</span>
+                                    <p class="font-bold">Some fields are incorrect.</p>
+                                </div>
+                                <!-- <p v-for="error in errors" class="text-red-500">{{ error }}</p> -->
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div class="flex flex-col">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700" for="firstname">First
+                                        Name</label>
+                                    <input type="text" id="firstname" v-model="firstname" name="firstname"
+                                        placeholder="First Name" class="w-full px-3 py-2 mb-3 bg-gray-100 rounded">
+                                    <div class="text-sm text-red-500" v-if="errors"> {{ errors.firstname }}</div>
+
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700" for="lastname">Last
+                                        Name</label>
+                                    <input type="text" id="lastname" v-model="lastname" name="lastname"
+                                        placeholder="Last Name" class="w-full px-3 py-2 mb-3 bg-gray-100 rounded">
+                                    <div class="text-sm text-red-500" v-if="errors"> {{ errors.lastname }}</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-700" for="email">
+                                    Student ID
+                                </label>
+                                <input type="text" id="id" v-model="id" name="email" placeholder="Student ID"
+                                    class="w-full px-3 py-2 mb-3 bg-gray-100 rounded">
+                                <div class="text-sm text-red-500" v-if="errors"> {{ errors.id }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-700" for="email">
+                                    Email
+                                </label>
+                                <input type="text" id="email" v-model="email" name="email" placeholder="Email"
+                                    class="w-full px-3 py-2 mb-3 bg-gray-100 rounded">
+                                <div class="text-sm text-red-500" v-if="errors"> {{ errors.email }}</div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div class="flex flex-col">
+                                    <label for="phone" class="text-sm font-medium leading-7 text-gray-600">Phone
+                                        Number</label>
+                                    <input type="text" id="phone" v-model="phone" name="phone"
+                                        placeholder="Phone Number" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                    <div class="text-sm text-red-500" v-if="errors"> {{ errors.phone }}</div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-sm font-medium leading-7 text-gray-600">Gender</label>
+                                    <div class="flex flex-row pt-2 space-x-2">
+                                        <input type="radio" id="Male" v-model="gender" name="gender" value="M"
+                                            class="bg-gray-100 rounded px-4 py-2 mb-4 mt-2">
+                                        <label for="Male">Male</label>
+                                        <input type="radio" id="Female" v-model="gender" name="gender" value="F"
+                                            class="bg-gray-100 rounded px-4 py-2 mb-4 mt-2" autofocus>
+                                        <label for="Female">Female</label>
+                                    </div>
+                                    <div class="text-sm text-red-500" v-if="errors"> {{ errors.gender }}</div>
+                                </div>
+                            </div>
+
+
+                            <div class="flex flex-col col-span-2">
+                                <input type="submit" value="Submit"
+                                    class="px-8 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="./profile.js"></script>
+</body>
+
+</html>
